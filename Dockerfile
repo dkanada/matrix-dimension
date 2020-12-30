@@ -19,11 +19,13 @@ COPY --from=build /home/node/matrix-dimension/package* /home/node/matrix-dimensi
 COPY --from=build /home/node/matrix-dimension/config /home/node/matrix-dimension/config
 
 RUN npm clean-install --production
+RUN ln -sf /data/config.yaml config/production.yaml
 
 VOLUME ["/data"]
 
+ENV NODE_ENV=production
 ENV DIMENSION_DB_PATH=/data/dimension.db
 
 EXPOSE 8184
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["node", "build/app/index.js"]
