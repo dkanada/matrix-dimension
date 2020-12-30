@@ -20,7 +20,6 @@ import { GenericWidgetWrapperComponent } from "./widget-wrappers/generic/generic
 import { ToggleFullscreenDirective } from "./shared/directives/toggle-fullscreen.directive";
 import { FullscreenButtonComponent } from "./elements/fullscreen-button/fullscreen-button.component";
 import { VideoWidgetWrapperComponent } from "./widget-wrappers/video/video.component";
-import { JitsiWidgetWrapperComponent } from "./widget-wrappers/jitsi/jitsi.component";
 import { PageHeaderComponent } from "./page-header/page-header.component";
 import { SpinnerComponent } from "./elements/spinner/spinner.component";
 import { RiotHomeComponent } from "./riot/riot-home/home.component";
@@ -31,15 +30,10 @@ import { ServiceLocator } from "./shared/registry/locator.service";
 import { IboxComponent } from "./elements/ibox/ibox.component";
 import { CustomWidgetConfigComponent } from "./configs/widget/custom/custom.widget.component";
 import { ConfigScreenWidgetComponent } from "./configs/widget/config-screen/config-screen.widget.component";
-import { EtherpadWidgetConfigComponent } from "./configs/widget/etherpad/etherpad.widget.component";
 import { NameService } from "./shared/services/name.service";
-import { JitsiWidgetConfigComponent } from "./configs/widget/jitsi/jitsi.widget.component";
-import { TwitchWidgetConfigComponent } from "./configs/widget/twitch/twitch.widget.component";
 import { AdminComponent } from "./admin/admin.component";
 import { AdminHomeComponent } from "./admin/home/home.component";
 import { AdminWidgetsComponent } from "./admin/widgets/widgets.component";
-import { AdminWidgetEtherpadConfigComponent } from "./admin/widgets/etherpad/etherpad.component";
-import { AdminWidgetJitsiConfigComponent } from "./admin/widgets/jitsi/jitsi.component";
 import { AdminIntegrationsApiService } from "./shared/services/admin/admin-integrations-api.service";
 import { IntegrationsApiService } from "./shared/services/integrations/integrations-api.service";
 import { WidgetApiService } from "./shared/services/integrations/widget-api.service";
@@ -64,7 +58,6 @@ import { StickerApiService } from "./shared/services/integrations/sticker-api.se
 import { StickerpickerComponent } from "./configs/stickerpicker/stickerpicker.component";
 import { StickerPickerWidgetWrapperComponent } from "./widget-wrappers/sticker-picker/sticker-picker.component";
 import { GenericFullscreenWidgetWrapperComponent } from "./widget-wrappers/generic-fullscreen/generic-fullscreen.component";
-import { GrafanaWidgetConfigComponent } from "./configs/widget/grafana/grafana.widget.component";
 import { AdminLogoutConfirmationDialogComponent } from "./admin/home/logout-confirmation/logout-confirmation.component";
 import { ReauthExampleWidgetWrapperComponent } from "./widget-wrappers/reauth-example/reauth-example.component";
 import { ManagerTestWidgetWrapperComponent } from "./widget-wrappers/manager-test/manager-test.component";
@@ -116,19 +109,13 @@ export function HttpLoaderFactory(http: HttpClient) {
         ToggleFullscreenDirective,
         FullscreenButtonComponent,
         VideoWidgetWrapperComponent,
-        JitsiWidgetWrapperComponent,
         RiotHomeComponent,
         IboxComponent,
         ConfigScreenWidgetComponent,
         CustomWidgetConfigComponent,
-        EtherpadWidgetConfigComponent,
-        JitsiWidgetConfigComponent,
-        TwitchWidgetConfigComponent,
         AdminComponent,
         AdminHomeComponent,
         AdminWidgetsComponent,
-        AdminWidgetEtherpadConfigComponent,
-        AdminWidgetJitsiConfigComponent,
         AdminNebComponent,
         AdminEditNebComponent,
         AdminAddSelfhostedNebComponent,
@@ -144,7 +131,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         StickerpickerComponent,
         StickerPickerWidgetWrapperComponent,
         GenericFullscreenWidgetWrapperComponent,
-        GrafanaWidgetConfigComponent,
         AdminLogoutConfirmationDialogComponent,
         ReauthExampleWidgetWrapperComponent,
         ManagerTestWidgetWrapperComponent,
@@ -173,8 +159,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ],
     bootstrap: [AppComponent],
     entryComponents: [
-        AdminWidgetEtherpadConfigComponent,
-        AdminWidgetJitsiConfigComponent,
         AdminNebAppserviceConfigComponent,
         AdminNebGiphyConfigComponent,
         AdminNebGuggyConfigComponent,

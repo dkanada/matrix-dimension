@@ -1,10 +1,6 @@
 import { WidgetsResponse } from "./server-client-responses";
 
 export const WIDGET_CUSTOM = ["m.custom", "customwidget", "dimension-customwidget"];
-export const WIDGET_ETHERPAD = ["m.etherpad", "etherpad", "dimension-etherpad"];
-export const WIDGET_JITSI = ["jitsi", "m.jitsi", "dimension-jitsi"]; // TODO: Move m.jitsi higher (https://github.com/vector-im/riot-meta/issues/282)
-export const WIDGET_GRAFANA = ["m.grafana", "grafana", "dimension-grafana"];
-export const WIDGET_TWITCH = ["twitch", "dimension-twitch"]; // TODO: m.* namespace proposal
 export const WIDGET_STICKER_PICKER = ["m.stickerpicker"];
 
 export interface EditableWidget {

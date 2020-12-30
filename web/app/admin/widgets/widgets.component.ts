@@ -1,12 +1,9 @@
 import { Component } from "@angular/core";
 import { FE_Widget } from "../../shared/models/integration";
 import { ToasterService } from "angular2-toaster";
-import { AdminWidgetEtherpadConfigComponent } from "./etherpad/etherpad.component";
 import { Modal, overlayConfigFactory } from "ngx-modialog";
 import { BSModalContext } from "ngx-modialog/plugins/bootstrap";
-import { AdminWidgetJitsiConfigComponent } from "./jitsi/jitsi.component";
 import { AdminIntegrationsApiService } from "../../shared/services/admin/admin-integrations-api.service";
-import { AdminWidgetWhiteboardConfigComponent } from "./whiteboard/whiteboard.component";
 import { TranslateService } from "@ngx-translate/core";
 
 export class WidgetConfigDialogContext extends BSModalContext {
@@ -42,7 +39,7 @@ export class AdminWidgetsComponent {
             this.translate.get('Widget updated').subscribe((res: string) => {this.toaster.pop("success", res); });
         }).catch(err => {
             console.error(err);
-            widget.isEnabled = !widget.isEnabled; // revert change
+            widget.isEnabled = !widget.isEnabled;
             this.isUpdating = false;
             this.translate.get('Error updating widget').subscribe((res: string) => {this.toaster.pop("error", res); });
         });
@@ -50,10 +47,6 @@ export class AdminWidgetsComponent {
 
     public editWidget(widget: FE_Widget) {
         let component = null;
-
-        if (widget.type === "etherpad") component = AdminWidgetEtherpadConfigComponent;
-        if (widget.type === "jitsi") component = AdminWidgetJitsiConfigComponent;
-        if (widget.type === "whiteboard") component = AdminWidgetWhiteboardConfigComponent;
 
         if (!component) {
             console.error("No known dialog component for " + widget.type);

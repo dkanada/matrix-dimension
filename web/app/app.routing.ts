@@ -3,12 +3,8 @@ import { HomeComponent } from "./home/home.component";
 import { RiotComponent } from "./riot/riot.component";
 import { GenericWidgetWrapperComponent } from "./widget-wrappers/generic/generic.component";
 import { VideoWidgetWrapperComponent } from "./widget-wrappers/video/video.component";
-import { JitsiWidgetWrapperComponent } from "./widget-wrappers/jitsi/jitsi.component";
 import { RiotHomeComponent } from "./riot/riot-home/home.component";
 import { CustomWidgetConfigComponent } from "./configs/widget/custom/custom.widget.component";
-import { EtherpadWidgetConfigComponent } from "./configs/widget/etherpad/etherpad.widget.component";
-import { JitsiWidgetConfigComponent } from "./configs/widget/jitsi/jitsi.widget.component";
-import { TwitchWidgetConfigComponent } from "./configs/widget/twitch/twitch.widget.component";
 import { AdminComponent } from "./admin/admin.component";
 import { AdminHomeComponent } from "./admin/home/home.component";
 import { AdminWidgetsComponent } from "./admin/widgets/widgets.component";
@@ -19,7 +15,6 @@ import { AdminStickerPacksComponent } from "./admin/sticker-packs/sticker-packs.
 import { StickerpickerComponent } from "./configs/stickerpicker/stickerpicker.component";
 import { StickerPickerWidgetWrapperComponent } from "./widget-wrappers/sticker-picker/sticker-picker.component";
 import { GenericFullscreenWidgetWrapperComponent } from "./widget-wrappers/generic-fullscreen/generic-fullscreen.component";
-import { GrafanaWidgetConfigComponent } from "./configs/widget/grafana/grafana.widget.component";
 import { ReauthExampleWidgetWrapperComponent } from "./widget-wrappers/reauth-example/reauth-example.component";
 import { ManagerTestWidgetWrapperComponent } from "./widget-wrappers/manager-test/manager-test.component";
 import { AdminTermsComponent } from "./admin/terms/terms.component";
@@ -113,26 +108,6 @@ const routes: Routes = [
                         component: CustomWidgetConfigComponent,
                         data: {breadcrumb: "Custom Widgets", name: "Custom Widgets"},
                     },
-                    {
-                        path: "etherpad",
-                        component: EtherpadWidgetConfigComponent,
-                        data: {breadcrumb: "Notes Widgets", name: "Notes Widgets"},
-                    },
-                    {
-                        path: "jitsi",
-                        component: JitsiWidgetConfigComponent,
-                        data: {breadcrumb: "Jitsi Widgets", name: "Jitsi Widgets"},
-                    },
-                    {
-                        path: "twitch",
-                        component: TwitchWidgetConfigComponent,
-                        data: {breadcrumb: "Twitch Livestream Widgets", name: "Twitch Livestream Widgets"},
-                    },
-                    {
-                        path: "grafana",
-                        component: GrafanaWidgetConfigComponent,
-                        data: {breadcrumb: "Grafana Widgets", name: "Grafana Widgets"},
-                    },
                 ],
             },
             {
@@ -148,7 +123,6 @@ const routes: Routes = [
             {path: "terms/:shortcode/:lang/:version", component: TermsWidgetWrapperComponent},
             {path: "generic", component: GenericWidgetWrapperComponent},
             {path: "video", component: VideoWidgetWrapperComponent},
-            {path: "jitsi", component: JitsiWidgetWrapperComponent},
             {path: "stickerpicker", component: StickerPickerWidgetWrapperComponent},
             {path: "generic-fullscreen", component: GenericFullscreenWidgetWrapperComponent},
             {path: "reauth", component: ReauthExampleWidgetWrapperComponent},
