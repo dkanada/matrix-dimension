@@ -21,26 +21,15 @@ import { AdminWidgetsComponent } from "./admin/widgets/widgets.component";
 import { AdminNebComponent } from "./admin/neb/neb.component";
 import { AdminEditNebComponent } from "./admin/neb/edit/edit.component";
 import { AdminAddSelfhostedNebComponent } from "./admin/neb/add-selfhosted/add-selfhosted.component";
-import { RssComplexBotConfigComponent } from "./configs/complex-bot/rss/rss.complex-bot.component";
-import { TravisCiComplexBotConfigComponent } from "./configs/complex-bot/travisci/travisci.complex-bot.component";
-import { AdminBridgesComponent } from "./admin/bridges/bridges.component";
-import { AdminIrcBridgeComponent } from "./admin/bridges/irc/irc.component";
-import { IrcBridgeConfigComponent } from "./configs/bridge/irc/irc.bridge.component";
 import { AdminStickerPacksComponent } from "./admin/sticker-packs/sticker-packs.component";
 import { StickerpickerComponent } from "./configs/stickerpicker/stickerpicker.component";
 import { StickerPickerWidgetWrapperComponent } from "./widget-wrappers/sticker-picker/sticker-picker.component";
-import { AdminTelegramBridgeComponent } from "./admin/bridges/telegram/telegram.component";
-import { TelegramBridgeConfigComponent } from "./configs/bridge/telegram/telegram.bridge.component";
-import { AdminWebhooksBridgeComponent } from "./admin/bridges/webhooks/webhooks.component";
-import { WebhooksBridgeConfigComponent } from "./configs/bridge/webhooks/webhooks.bridge.component";
 import { GenericFullscreenWidgetWrapperComponent } from "./widget-wrappers/generic-fullscreen/generic-fullscreen.component";
 import { GrafanaWidgetConfigComponent } from "./configs/widget/grafana/grafana.widget.component";
 import { TradingViewWidgetConfigComponent } from "./configs/widget/tradingview/tradingview.widget.component";
 import { TradingViewWidgetWrapperComponent } from "./widget-wrappers/tradingview/tradingview.component";
 import { SpotifyWidgetConfigComponent } from "./configs/widget/spotify/spotify.widget.component";
 import { SpotifyWidgetWrapperComponent } from "./widget-wrappers/spotify/spotify.component";
-import { AdminSlackBridgeComponent } from "./admin/bridges/slack/slack.component";
-import { SlackBridgeConfigComponent } from "./configs/bridge/slack/slack.bridge.component";
 import { ReauthExampleWidgetWrapperComponent } from "./widget-wrappers/reauth-example/reauth-example.component";
 import { ManagerTestWidgetWrapperComponent } from "./widget-wrappers/manager-test/manager-test.component";
 import { AdminTermsComponent } from "./admin/terms/terms.component";
@@ -94,36 +83,6 @@ const routes: Routes = [
                                 data: {breadcrumb: "Add self-hosted go-neb", name: "Add self-hosted go-neb"},
                             },
                         ]
-                    },
-                    {
-                        path: "bridges",
-                        data: {breadcrumb: "Bridges", name: "Bridges"},
-                        children: [
-                            {
-                                path: "",
-                                component: AdminBridgesComponent,
-                            },
-                            {
-                                path: "irc",
-                                component: AdminIrcBridgeComponent,
-                                data: {breadcrumb: "IRC Bridge", name: "IRC Bridge"},
-                            },
-                            {
-                                path: "telegram",
-                                component: AdminTelegramBridgeComponent,
-                                data: {breadcrumb: "Telegram Bridge", name: "Telegram Bridge"},
-                            },
-                            {
-                                path: "webhooks",
-                                component: AdminWebhooksBridgeComponent,
-                                data: {breadcrumb: "Webhook Bridge", name: "Webhook Bridge"},
-                            },
-                            {
-                                path: "slack",
-                                component: AdminSlackBridgeComponent,
-                                data: {breadcrumb: "Slack Bridge", name: "Slack Bridge"},
-                            },
-                        ],
                     },
                     {
                         path: "stickerpacks",
@@ -219,46 +178,6 @@ const routes: Routes = [
                         path: "whiteboard",
                         component: WhiteboardWidgetComponent,
                         data: {breadcrumb: "Whiteboard Widgets", name: "Whiteboard Widgets"},
-                    },
-                ],
-            },
-            {
-                path: "complex-bot",
-                children: [
-                    {
-                        path: "rss",
-                        component: RssComplexBotConfigComponent,
-                        data: {breadcrumb: "RSS Bot Configuration", name: "RSS Bot Configuration"},
-                    },
-                    {
-                        path: "travisci",
-                        component: TravisCiComplexBotConfigComponent,
-                        data: {breadcrumb: "Travis CI Configuration", name: "Travis CI Configuration"},
-                    },
-                ],
-            },
-            {
-                path: "bridge",
-                children: [
-                    {
-                        path: "irc",
-                        component: IrcBridgeConfigComponent,
-                        data: {breadcrumb: "IRC Bridge Configuration", name: "IRC Bridge Configuration"},
-                    },
-                    {
-                        path: "telegram",
-                        component: TelegramBridgeConfigComponent,
-                        data: {breadcrumb: "Telegram Bridge Configuration", name: "Telegram Bridge Configuration"},
-                    },
-                    {
-                        path: "webhooks",
-                        component: WebhooksBridgeConfigComponent,
-                        data: {breadcrumb: "Webhook Bridge Configuration", name: "Webhook Bridge Configuration"},
-                    },
-                    {
-                        path: "slack",
-                        component: SlackBridgeConfigComponent,
-                        data: {breadcrumb: "Slack Bridge Configuration", name: "Slack Bridge Configuration"},
                     },
                 ],
             },

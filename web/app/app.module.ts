@@ -59,17 +59,6 @@ import { AdminNebGuggyConfigComponent } from "./admin/neb/config/guggy/guggy.com
 import { AdminNebGoogleConfigComponent } from "./admin/neb/config/google/google.component";
 import { AdminNebImgurConfigComponent } from "./admin/neb/config/imgur/imgur.component";
 import { ConfigSimpleBotComponent } from "./configs/simple-bot/simple-bot.component";
-import { ConfigScreenComplexBotComponent } from "./configs/complex-bot/config-screen/config-screen.complex-bot.component";
-import { RssComplexBotConfigComponent } from "./configs/complex-bot/rss/rss.complex-bot.component";
-import { TravisCiComplexBotConfigComponent } from "./configs/complex-bot/travisci/travisci.complex-bot.component";
-import { ConfigScreenBridgeComponent } from "./configs/bridge/config-screen/config-screen.bridge.component";
-import { AdminBridgesComponent } from "./admin/bridges/bridges.component";
-import { AdminIrcBridgeComponent } from "./admin/bridges/irc/irc.component";
-import { AdminIrcApiService } from "./shared/services/admin/admin-irc-api.service";
-import { AdminIrcBridgeNetworksComponent } from "./admin/bridges/irc/networks/networks.component";
-import { AdminIrcBridgeAddSelfhostedComponent } from "./admin/bridges/irc/add-selfhosted/add-selfhosted.component";
-import { IrcBridgeConfigComponent } from "./configs/bridge/irc/irc.bridge.component";
-import { IrcApiService } from "./shared/services/integrations/irc-api.service";
 import { ScreenshotCapableDirective } from "./shared/directives/screenshot-capable.directive";
 import { AdminStickersApiService } from "./shared/services/admin/admin-stickers-api-service";
 import { AdminStickerPacksComponent } from "./admin/sticker-packs/sticker-packs.component";
@@ -78,29 +67,12 @@ import { MediaService } from "./shared/services/media.service";
 import { StickerApiService } from "./shared/services/integrations/sticker-api.service";
 import { StickerpickerComponent } from "./configs/stickerpicker/stickerpicker.component";
 import { StickerPickerWidgetWrapperComponent } from "./widget-wrappers/sticker-picker/sticker-picker.component";
-import { AdminTelegramApiService } from "./shared/services/admin/admin-telegram-api.service";
-import { AdminTelegramBridgeComponent } from "./admin/bridges/telegram/telegram.component";
-import { AdminTelegramBridgeManageSelfhostedComponent } from "./admin/bridges/telegram/manage-selfhosted/manage-selfhosted.component";
-import { TelegramApiService } from "./shared/services/integrations/telegram-api.service";
-import { TelegramBridgeConfigComponent } from "./configs/bridge/telegram/telegram.bridge.component";
-import { TelegramAskUnbridgeComponent } from "./configs/bridge/telegram/ask-unbridge/ask-unbridge.component";
-import { TelegramCannotUnbridgeComponent } from "./configs/bridge/telegram/cannot-unbridge/cannot-unbridge.component";
-import { AdminWebhooksBridgeManageSelfhostedComponent } from "./admin/bridges/webhooks/manage-selfhosted/manage-selfhosted.component";
-import { AdminWebhooksBridgeComponent } from "./admin/bridges/webhooks/webhooks.component";
-import { AdminWebhooksApiService } from "./shared/services/admin/admin-webhooks-api.service";
-import { WebhooksApiService } from "./shared/services/integrations/webhooks-api.service";
-import { WebhooksBridgeConfigComponent } from "./configs/bridge/webhooks/webhooks.bridge.component";
 import { GenericFullscreenWidgetWrapperComponent } from "./widget-wrappers/generic-fullscreen/generic-fullscreen.component";
 import { GrafanaWidgetConfigComponent } from "./configs/widget/grafana/grafana.widget.component";
 import { TradingViewWidgetConfigComponent } from "./configs/widget/tradingview/tradingview.widget.component";
 import { TradingViewWidgetWrapperComponent } from "./widget-wrappers/tradingview/tradingview.component";
 import { SpotifyWidgetConfigComponent } from "./configs/widget/spotify/spotify.widget.component";
 import { SpotifyWidgetWrapperComponent } from "./widget-wrappers/spotify/spotify.component";
-import { SlackApiService } from "./shared/services/integrations/slack-api.service";
-import { SlackBridgeConfigComponent } from "./configs/bridge/slack/slack.bridge.component";
-import { AdminSlackBridgeManageSelfhostedComponent } from "./admin/bridges/slack/manage-selfhosted/manage-selfhosted.component";
-import { AdminSlackBridgeComponent } from "./admin/bridges/slack/slack.component";
-import { AdminSlackApiService } from "./shared/services/admin/admin-slack-api.service";
 import { AdminLogoutConfirmationDialogComponent } from "./admin/home/logout-confirmation/logout-confirmation.component";
 import { ReauthExampleWidgetWrapperComponent } from "./widget-wrappers/reauth-example/reauth-example.component";
 import { ManagerTestWidgetWrapperComponent } from "./widget-wrappers/manager-test/manager-test.component";
@@ -185,37 +157,17 @@ export function HttpLoaderFactory(http: HttpClient) {
         AdminNebGoogleConfigComponent,
         AdminNebImgurConfigComponent,
         ConfigSimpleBotComponent,
-        ConfigScreenComplexBotComponent,
-        RssComplexBotConfigComponent,
-        TravisCiComplexBotConfigComponent,
-        ConfigScreenBridgeComponent,
-        AdminBridgesComponent,
-        AdminIrcBridgeComponent,
-        AdminIrcBridgeNetworksComponent,
-        AdminIrcBridgeAddSelfhostedComponent,
-        IrcBridgeConfigComponent,
         ScreenshotCapableDirective,
         AdminStickerPacksComponent,
         AdminStickerPackPreviewComponent,
         StickerpickerComponent,
         StickerPickerWidgetWrapperComponent,
-        AdminTelegramBridgeComponent,
-        AdminTelegramBridgeManageSelfhostedComponent,
-        TelegramBridgeConfigComponent,
-        TelegramAskUnbridgeComponent,
-        TelegramCannotUnbridgeComponent,
-        AdminWebhooksBridgeManageSelfhostedComponent,
-        AdminWebhooksBridgeComponent,
-        WebhooksBridgeConfigComponent,
         GenericFullscreenWidgetWrapperComponent,
         GrafanaWidgetConfigComponent,
         TradingViewWidgetConfigComponent,
         TradingViewWidgetWrapperComponent,
         SpotifyWidgetConfigComponent,
         SpotifyWidgetWrapperComponent,
-        SlackBridgeConfigComponent,
-        AdminSlackBridgeManageSelfhostedComponent,
-        AdminSlackBridgeComponent,
         AdminLogoutConfirmationDialogComponent,
         ReauthExampleWidgetWrapperComponent,
         ManagerTestWidgetWrapperComponent,
@@ -237,18 +189,10 @@ export function HttpLoaderFactory(http: HttpClient) {
         AdminAppserviceApiService,
         AdminNebApiService,
         AdminUpstreamApiService,
-        AdminIrcApiService,
-        IrcApiService,
         AdminStickersApiService,
         MediaService,
         StickerApiService,
         BigBlueButtonApiService,
-        AdminTelegramApiService,
-        TelegramApiService,
-        AdminWebhooksApiService,
-        WebhooksApiService,
-        SlackApiService,
-        AdminSlackApiService,
         ToasterService,
         AdminTermsApiService,
         {provide: Window, useValue: window},
@@ -263,14 +207,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         AdminNebGoogleConfigComponent,
         AdminNebImgurConfigComponent,
         ConfigSimpleBotComponent,
-        AdminIrcBridgeNetworksComponent,
-        AdminIrcBridgeAddSelfhostedComponent,
         AdminStickerPackPreviewComponent,
-        AdminTelegramBridgeManageSelfhostedComponent,
-        TelegramAskUnbridgeComponent,
-        TelegramCannotUnbridgeComponent,
-        AdminWebhooksBridgeManageSelfhostedComponent,
-        AdminSlackBridgeManageSelfhostedComponent,
         AdminLogoutConfirmationDialogComponent,
         AdminTermsNewEditPublishDialogComponent,
         AdminWidgetWhiteboardConfigComponent
