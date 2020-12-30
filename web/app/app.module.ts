@@ -96,9 +96,6 @@ import { TradingViewWidgetConfigComponent } from "./configs/widget/tradingview/t
 import { TradingViewWidgetWrapperComponent } from "./widget-wrappers/tradingview/tradingview.component";
 import { SpotifyWidgetConfigComponent } from "./configs/widget/spotify/spotify.widget.component";
 import { SpotifyWidgetWrapperComponent } from "./widget-wrappers/spotify/spotify.component";
-import { AdminCustomSimpleBotsApiService } from "./shared/services/admin/admin-custom-simple-bots-api.service";
-import { AdminCustomBotsComponent } from "./admin/custom-bots/custom-bots.component";
-import { AdminAddCustomBotComponent } from "./admin/custom-bots/add/add.component";
 import { SlackApiService } from "./shared/services/integrations/slack-api.service";
 import { SlackBridgeConfigComponent } from "./configs/bridge/slack/slack.bridge.component";
 import { AdminSlackBridgeManageSelfhostedComponent } from "./admin/bridges/slack/manage-selfhosted/manage-selfhosted.component";
@@ -216,8 +213,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         TradingViewWidgetWrapperComponent,
         SpotifyWidgetConfigComponent,
         SpotifyWidgetWrapperComponent,
-        AdminCustomBotsComponent,
-        AdminAddCustomBotComponent,
         SlackBridgeConfigComponent,
         AdminSlackBridgeManageSelfhostedComponent,
         AdminSlackBridgeComponent,
@@ -230,8 +225,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         TermsWidgetWrapperComponent,
         WhiteboardWidgetComponent,
         AdminWidgetWhiteboardConfigComponent
-
-        // Vendor
     ],
     providers: [
         AdminApiService,
@@ -254,14 +247,11 @@ export function HttpLoaderFactory(http: HttpClient) {
         TelegramApiService,
         AdminWebhooksApiService,
         WebhooksApiService,
-        AdminCustomSimpleBotsApiService,
         SlackApiService,
         AdminSlackApiService,
         ToasterService,
         AdminTermsApiService,
         {provide: Window, useValue: window},
-
-        // Vendor
     ],
     bootstrap: [AppComponent],
     entryComponents: [
@@ -280,7 +270,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         TelegramAskUnbridgeComponent,
         TelegramCannotUnbridgeComponent,
         AdminWebhooksBridgeManageSelfhostedComponent,
-        AdminAddCustomBotComponent,
         AdminSlackBridgeManageSelfhostedComponent,
         AdminLogoutConfirmationDialogComponent,
         AdminTermsNewEditPublishDialogComponent,
