@@ -114,9 +114,6 @@ module.exports = function () {
                 tslint: {
                     emitErrors: false,
                     failOnHint: false
-                },
-                sassLoader: {
-                    //includePaths: [path.resolve(__dirname, "node_modules/foundation-sites/scss")]
                 }
             }
         }),
@@ -137,7 +134,6 @@ module.exports = function () {
         historyApiFallback: true,
         disableHostCheck: true,
         quiet: false,
-        //stats: 'minimal',
         proxy: {
             '/api': {
                 target: 'http://localhost:8184',
