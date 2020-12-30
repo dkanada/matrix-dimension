@@ -8,9 +8,6 @@ import { CustomWidgetConfigComponent } from "./configs/widget/custom/custom.widg
 import { AdminComponent } from "./admin/admin.component";
 import { AdminHomeComponent } from "./admin/home/home.component";
 import { AdminWidgetsComponent } from "./admin/widgets/widgets.component";
-import { AdminNebComponent } from "./admin/neb/neb.component";
-import { AdminEditNebComponent } from "./admin/neb/edit/edit.component";
-import { AdminAddSelfhostedNebComponent } from "./admin/neb/add-selfhosted/add-selfhosted.component";
 import { AdminStickerPacksComponent } from "./admin/sticker-packs/sticker-packs.component";
 import { StickerpickerComponent } from "./configs/stickerpicker/stickerpicker.component";
 import { StickerPickerWidgetWrapperComponent } from "./widget-wrappers/sticker-picker/sticker-picker.component";
@@ -47,26 +44,6 @@ const routes: Routes = [
                         path: "widgets",
                         component: AdminWidgetsComponent,
                         data: {breadcrumb: "Widgets", name: "Widgets"},
-                    },
-                    {
-                        path: "neb",
-                        data: {breadcrumb: "go-neb", name: "go-neb configuration"},
-                        children: [
-                            {
-                                path: "",
-                                component: AdminNebComponent,
-                            },
-                            {
-                                path: ":nebId/edit",
-                                component: AdminEditNebComponent,
-                                data: {breadcrumb: "Edit go-neb", name: "Edit go-neb"},
-                            },
-                            {
-                                path: "new/selfhosted",
-                                component: AdminAddSelfhostedNebComponent,
-                                data: {breadcrumb: "Add self-hosted go-neb", name: "Add self-hosted go-neb"},
-                            },
-                        ]
                     },
                     {
                         path: "stickerpacks",

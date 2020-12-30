@@ -38,16 +38,7 @@ import { AdminIntegrationsApiService } from "./shared/services/admin/admin-integ
 import { IntegrationsApiService } from "./shared/services/integrations/integrations-api.service";
 import { WidgetApiService } from "./shared/services/integrations/widget-api.service";
 import { AdminAppserviceApiService } from "./shared/services/admin/admin-appservice-api.service";
-import { AdminNebApiService } from "./shared/services/admin/admin-neb-api.service";
 import { AdminUpstreamApiService } from "./shared/services/admin/admin-upstream-api.service";
-import { AdminNebComponent } from "./admin/neb/neb.component";
-import { AdminEditNebComponent } from "./admin/neb/edit/edit.component";
-import { AdminAddSelfhostedNebComponent } from "./admin/neb/add-selfhosted/add-selfhosted.component";
-import { AdminNebAppserviceConfigComponent } from "./admin/neb/appservice-config/appservice-config.component";
-import { AdminNebGiphyConfigComponent } from "./admin/neb/config/giphy/giphy.component";
-import { AdminNebGuggyConfigComponent } from "./admin/neb/config/guggy/guggy.component";
-import { AdminNebGoogleConfigComponent } from "./admin/neb/config/google/google.component";
-import { AdminNebImgurConfigComponent } from "./admin/neb/config/imgur/imgur.component";
 import { ConfigSimpleBotComponent } from "./configs/simple-bot/simple-bot.component";
 import { ScreenshotCapableDirective } from "./shared/directives/screenshot-capable.directive";
 import { AdminStickersApiService } from "./shared/services/admin/admin-stickers-api-service";
@@ -116,14 +107,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         AdminComponent,
         AdminHomeComponent,
         AdminWidgetsComponent,
-        AdminNebComponent,
-        AdminEditNebComponent,
-        AdminAddSelfhostedNebComponent,
-        AdminNebAppserviceConfigComponent,
-        AdminNebGiphyConfigComponent,
-        AdminNebGuggyConfigComponent,
-        AdminNebGoogleConfigComponent,
-        AdminNebImgurConfigComponent,
         ConfigSimpleBotComponent,
         ScreenshotCapableDirective,
         AdminStickerPacksComponent,
@@ -148,7 +131,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         ScalarServerApiService,
         NameService,
         AdminAppserviceApiService,
-        AdminNebApiService,
         AdminUpstreamApiService,
         AdminStickersApiService,
         MediaService,
@@ -159,11 +141,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ],
     bootstrap: [AppComponent],
     entryComponents: [
-        AdminNebAppserviceConfigComponent,
-        AdminNebGiphyConfigComponent,
-        AdminNebGuggyConfigComponent,
-        AdminNebGoogleConfigComponent,
-        AdminNebImgurConfigComponent,
         ConfigSimpleBotComponent,
         AdminStickerPackPreviewComponent,
         AdminLogoutConfirmationDialogComponent,

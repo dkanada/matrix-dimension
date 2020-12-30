@@ -1,5 +1,3 @@
-import { FE_Integration } from "./integration";
-
 export interface FE_DimensionConfig {
     admins: string[];
     widgetBlacklist: string[];
@@ -32,29 +30,6 @@ export interface FE_Appservice {
     hsToken: string;
     asToken: string;
     userPrefix: string;
-}
-
-export interface FE_NebConfiguration {
-    id: number;
-    adminUrl?: string;
-    appserviceId?: string;
-    upstreamId?: string;
-    integrations: FE_Integration[];
-}
-
-export interface FE_CustomSimpleBot extends FE_CustomSimpleBotTemplate {
-    id: number;
-    type: string;
-}
-
-export interface FE_CustomSimpleBotTemplate {
-    name: string;
-    avatarUrl: string;
-    description: string;
-    isEnabled: boolean;
-    isPublic: boolean;
-    userId: string;
-    accessToken: string;
 }
 
 export interface FE_UserProfile {
