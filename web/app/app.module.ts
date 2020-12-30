@@ -21,7 +21,6 @@ import { ToggleFullscreenDirective } from "./shared/directives/toggle-fullscreen
 import { FullscreenButtonComponent } from "./elements/fullscreen-button/fullscreen-button.component";
 import { VideoWidgetWrapperComponent } from "./widget-wrappers/video/video.component";
 import { JitsiWidgetWrapperComponent } from "./widget-wrappers/jitsi/jitsi.component";
-import { GCalWidgetWrapperComponent } from "./widget-wrappers/gcal/gcal.component";
 import { PageHeaderComponent } from "./page-header/page-header.component";
 import { SpinnerComponent } from "./elements/spinner/spinner.component";
 import { RiotHomeComponent } from "./riot/riot-home/home.component";
@@ -34,11 +33,8 @@ import { CustomWidgetConfigComponent } from "./configs/widget/custom/custom.widg
 import { ConfigScreenWidgetComponent } from "./configs/widget/config-screen/config-screen.widget.component";
 import { EtherpadWidgetConfigComponent } from "./configs/widget/etherpad/etherpad.widget.component";
 import { NameService } from "./shared/services/name.service";
-import { GoogleCalendarWidgetConfigComponent } from "./configs/widget/google-calendar/gcal.widget.component";
-import { GoogleDocsWidgetConfigComponent } from "./configs/widget/google-docs/gdoc.widget.component";
 import { JitsiWidgetConfigComponent } from "./configs/widget/jitsi/jitsi.widget.component";
 import { TwitchWidgetConfigComponent } from "./configs/widget/twitch/twitch.widget.component";
-import { YoutubeWidgetConfigComponent } from "./configs/widget/youtube/youtube.widget.component";
 import { AdminComponent } from "./admin/admin.component";
 import { AdminHomeComponent } from "./admin/home/home.component";
 import { AdminWidgetsComponent } from "./admin/widgets/widgets.component";
@@ -69,10 +65,6 @@ import { StickerpickerComponent } from "./configs/stickerpicker/stickerpicker.co
 import { StickerPickerWidgetWrapperComponent } from "./widget-wrappers/sticker-picker/sticker-picker.component";
 import { GenericFullscreenWidgetWrapperComponent } from "./widget-wrappers/generic-fullscreen/generic-fullscreen.component";
 import { GrafanaWidgetConfigComponent } from "./configs/widget/grafana/grafana.widget.component";
-import { TradingViewWidgetConfigComponent } from "./configs/widget/tradingview/tradingview.widget.component";
-import { TradingViewWidgetWrapperComponent } from "./widget-wrappers/tradingview/tradingview.component";
-import { SpotifyWidgetConfigComponent } from "./configs/widget/spotify/spotify.widget.component";
-import { SpotifyWidgetWrapperComponent } from "./widget-wrappers/spotify/spotify.component";
 import { AdminLogoutConfirmationDialogComponent } from "./admin/home/logout-confirmation/logout-confirmation.component";
 import { ReauthExampleWidgetWrapperComponent } from "./widget-wrappers/reauth-example/reauth-example.component";
 import { ManagerTestWidgetWrapperComponent } from "./widget-wrappers/manager-test/manager-test.component";
@@ -82,11 +74,6 @@ import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
 import { AdminNewEditTermsComponent } from "./admin/terms/new-edit/new-edit.component";
 import { AdminTermsNewEditPublishDialogComponent } from "./admin/terms/new-edit/publish/publish.component";
 import { TermsWidgetWrapperComponent } from "./widget-wrappers/terms/terms.component";
-import { BigBlueButtonConfigComponent } from "./configs/widget/bigbluebutton/bigbluebutton.widget.component";
-import { BigBlueButtonWidgetWrapperComponent } from "./widget-wrappers/bigbluebutton/bigbluebutton.component";
-import { BigBlueButtonApiService } from "./shared/services/integrations/bigbluebutton-api.service";
-import { WhiteboardWidgetComponent } from "./configs/widget/whiteboard/whiteboard.widget.component";
-import { AdminWidgetWhiteboardConfigComponent } from "./admin/widgets/whiteboard/whiteboard.component";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
@@ -130,19 +117,13 @@ export function HttpLoaderFactory(http: HttpClient) {
         FullscreenButtonComponent,
         VideoWidgetWrapperComponent,
         JitsiWidgetWrapperComponent,
-        BigBlueButtonWidgetWrapperComponent,
-        GCalWidgetWrapperComponent,
-        BigBlueButtonConfigComponent,
         RiotHomeComponent,
         IboxComponent,
         ConfigScreenWidgetComponent,
         CustomWidgetConfigComponent,
         EtherpadWidgetConfigComponent,
-        GoogleCalendarWidgetConfigComponent,
-        GoogleDocsWidgetConfigComponent,
         JitsiWidgetConfigComponent,
         TwitchWidgetConfigComponent,
-        YoutubeWidgetConfigComponent,
         AdminComponent,
         AdminHomeComponent,
         AdminWidgetsComponent,
@@ -164,10 +145,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         StickerPickerWidgetWrapperComponent,
         GenericFullscreenWidgetWrapperComponent,
         GrafanaWidgetConfigComponent,
-        TradingViewWidgetConfigComponent,
-        TradingViewWidgetWrapperComponent,
-        SpotifyWidgetConfigComponent,
-        SpotifyWidgetWrapperComponent,
         AdminLogoutConfirmationDialogComponent,
         ReauthExampleWidgetWrapperComponent,
         ManagerTestWidgetWrapperComponent,
@@ -175,8 +152,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         AdminNewEditTermsComponent,
         AdminTermsNewEditPublishDialogComponent,
         TermsWidgetWrapperComponent,
-        WhiteboardWidgetComponent,
-        AdminWidgetWhiteboardConfigComponent
     ],
     providers: [
         AdminApiService,
@@ -192,7 +167,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         AdminStickersApiService,
         MediaService,
         StickerApiService,
-        BigBlueButtonApiService,
         ToasterService,
         AdminTermsApiService,
         {provide: Window, useValue: window},
@@ -210,7 +184,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         AdminStickerPackPreviewComponent,
         AdminLogoutConfirmationDialogComponent,
         AdminTermsNewEditPublishDialogComponent,
-        AdminWidgetWhiteboardConfigComponent
     ]
 })
 export class AppModule {
