@@ -6,8 +6,8 @@ export interface FE_TermsEditable {
             name: string;
             url: string;
             text?: string;
-        };
-    };
+        }
+    }
 }
 
 export interface FE_MinimalTerms {

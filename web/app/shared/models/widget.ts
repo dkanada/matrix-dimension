@@ -1,7 +1,7 @@
 import { WidgetsResponse } from "./server-client-responses";
 
-export const WIDGET_CUSTOM = ["m.custom", "customwidget", "dimension-customwidget"];
-export const WIDGET_STICKER_PICKER = ["m.stickerpicker"];
+export const WIDGET_CUSTOM = ["m.custom"];
+export const WIDGET_STICKERS = ["m.stickerpicker"];
 
 export interface EditableWidget {
     /**

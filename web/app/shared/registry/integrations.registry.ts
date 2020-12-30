@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import {
     WIDGET_CUSTOM,
-    WIDGET_STICKER_PICKER,
+    WIDGET_STICKERS,
 } from "../models/widget";
 import { FE_Integration } from "../models/integration";
 
@@ -26,7 +26,7 @@ export class IntegrationsRegistry {
                 types: WIDGET_CUSTOM,
             },
             "stickerpicker": {
-                types: WIDGET_STICKER_PICKER,
+                types: WIDGET_STICKERS,
             },
         },
     };

@@ -4,7 +4,7 @@ import { StickerApiService } from "../../shared/services/integrations/sticker-ap
 import { ToasterService } from "angular2-toaster";
 import { MediaService } from "../../shared/services/media.service";
 import { ScalarClientApiService } from "../../shared/services/scalar/scalar-client-api.service";
-import { WIDGET_STICKER_PICKER } from "../../shared/models/widget";
+import { WIDGET_STICKERS } from "../../shared/models/widget";
 import { TranslateService } from "@ngx-translate/core";
 
 @Component({
@@ -102,7 +102,7 @@ export class StickerpickerComponent implements OnInit {
             console.log("Force-setting new widget of ID " + widgetId);
             await this.scalarClient.setUserWidget({
                 id: widgetId,
-                type: WIDGET_STICKER_PICKER[0],
+                type: WIDGET_STICKERS[0],
                 url: targetUrl,
                 data: {
                     dimension: {

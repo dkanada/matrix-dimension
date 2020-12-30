@@ -29,7 +29,7 @@ export interface MembershipStateResponse extends ScalarUserResponse {
 export interface JoinRuleStateResponse extends ScalarRoomResponse {
     response: {
         join_rule: string;
-    };
+    }
 }
 
 export interface WidgetsResponse extends ScalarRoomResponse {
@@ -62,5 +62,5 @@ export interface RoomEncryptionStatusResponse extends ScalarRoomResponse {
 export interface SetPowerLevelResponse extends ScalarRoomResponse {
     response: {
         success: boolean;
-    };
+    }
 }
