@@ -1,4 +1,3 @@
-// component styles are encapsulated and only applied to their components
 @import "../../style/themes/themes";
 
 @include themifyComponent() {
@@ -10,14 +9,12 @@
 
   .header {
     width: 100%;
-    border-top: 1px solid themed(headerBorderColor);
-    border-bottom: 1px solid themed(headerBorderColor);
     background-color: themed(headerBgColor);
   }
 
   .header .title {
     margin: 0;
-    width: 83.333333%; // col-sm-10
+    width: 80%;
     padding: 15px;
     display: inline-block;
   }
@@ -33,8 +30,8 @@
     margin: 0;
     float: right;
     text-align: right;
-    display: inline-block;
-    width: 15.666667%; // col-sm-2
+    display: block;
+    width: 20%;
     position: relative;
   }
 }

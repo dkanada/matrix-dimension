@@ -16,7 +16,7 @@ import { TranslateService } from "@ngx-translate/core";
 
 const CATEGORY_MAP = {
     "Widgets": ["widget"],
-    "Bots": ["complex-bot", "bot"],
+    "Bots": ["bot"],
     "Bridges": ["bridge"],
 };
 

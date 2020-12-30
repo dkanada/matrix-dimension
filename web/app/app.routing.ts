@@ -47,7 +47,7 @@ const routes: Routes = [
                     },
                     {
                         path: "stickerpacks",
-                        data: {breadcrumb: "Sticker Packs", name: "Sticker Packs"},
+                        data: {breadcrumb: "Stickers", name: "Stickers"},
                         children: [
                             {
                                 path: "",
@@ -66,12 +66,12 @@ const routes: Routes = [
                             {
                                 path: "new",
                                 component: AdminNewEditTermsComponent,
-                                data: {breadcrumb: "New policy", name: "New policy"},
+                                data: {breadcrumb: "New Policy", name: "New Policy"},
                             },
                             {
                                 path: "edit/:shortcode",
                                 component: AdminNewEditTermsComponent,
-                                data: {breadcrumb: "Edit policy", name: "Edit policy"},
+                                data: {breadcrumb: "Edit Policy", name: "Edit Policy"},
                             },
                         ],
                     },
@@ -83,14 +83,14 @@ const routes: Routes = [
                     {
                         path: "custom",
                         component: CustomWidgetConfigComponent,
-                        data: {breadcrumb: "Custom Widgets", name: "Custom Widgets"},
+                        data: {breadcrumb: "Custom", name: "Custom"},
                     },
                 ],
             },
             {
                 path: "stickerpicker",
                 component: StickerpickerComponent,
-                data: {breadcrumb: "Your Sticker Packs", name: "Your Sticker Packs"},
+                data: {breadcrumb: "Stickers", name: "Stickers"},
             },
         ],
     },

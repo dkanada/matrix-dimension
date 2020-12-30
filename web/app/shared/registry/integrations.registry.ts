@@ -10,11 +10,6 @@ export class IntegrationsRegistry {
 
     private static supportedIntegrationsMap = {
         "bot": {},
-        "complex-bot": {
-            "rss": {},
-            "travisci": {},
-            "circleci": {},
-        },
         "bridge": {
             "irc": {},
             "telegram": {},
