@@ -1,18 +1,7 @@
 import { Injectable } from "@angular/core";
 import {
     WIDGET_CUSTOM,
-    WIDGET_BIGBLUEBUTTON,
-    WIDGET_ETHERPAD,
-    WIDGET_GOOGLE_CALENDAR,
-    WIDGET_GOOGLE_DOCS,
-    WIDGET_GRAFANA,
-    WIDGET_JITSI,
-    WIDGET_SPOTIFY,
     WIDGET_STICKER_PICKER,
-    WIDGET_TRADINGVIEW,
-    WIDGET_TWITCH,
-    WIDGET_YOUTUBE,
-    WIDGET_WHITEBOARD
 } from "../models/widget";
 import { FE_Integration } from "../models/integration";
 
@@ -20,7 +9,7 @@ import { FE_Integration } from "../models/integration";
 export class IntegrationsRegistry {
 
     private static supportedIntegrationsMap = {
-        "bot": {}, // empty == supported
+        "bot": {},
         "complex-bot": {
             "rss": {},
             "travisci": {},
@@ -36,42 +25,9 @@ export class IntegrationsRegistry {
             "custom": {
                 types: WIDGET_CUSTOM,
             },
-            "bigbluebutton": {
-                types: WIDGET_BIGBLUEBUTTON,
-            },
-            "youtube": {
-                types: WIDGET_YOUTUBE
-            },
-            "etherpad": {
-                types: WIDGET_ETHERPAD,
-            },
-            "twitch": {
-                types: WIDGET_TWITCH,
-            },
-            "jitsi": {
-                types: WIDGET_JITSI,
-            },
-            "googledocs": {
-                types: WIDGET_GOOGLE_DOCS,
-            },
-            "googlecalendar": {
-                types: WIDGET_GOOGLE_CALENDAR,
-            },
-            "grafana": {
-                types: WIDGET_GRAFANA,
-            },
-            "tradingview": {
-                types: WIDGET_TRADINGVIEW,
-            },
-            "spotify": {
-                types: WIDGET_SPOTIFY,
-            },
             "stickerpicker": {
                 types: WIDGET_STICKER_PICKER,
             },
-            "whiteboard": {
-                type: WIDGET_WHITEBOARD,
-            }
         },
     };
 
@@ -81,7 +37,7 @@ export class IntegrationsRegistry {
 
         if (Object.keys(forType).length === 0) return true;
 
-        return forType[integration.type]; // has sub type
+        return forType[integration.type];
     }
 
     static getIntegrationForScreen(screen: string): { category: string, type: string } {

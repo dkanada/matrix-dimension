@@ -15,5 +15,4 @@ export class ToggleFullscreenDirective {
             screenfull.toggle();
         }
     }
-
 }

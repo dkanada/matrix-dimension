@@ -159,7 +159,7 @@ export class StickerPickerWidgetWrapperComponent extends CapableWidget implement
     }
 
     private async loadStickers() {
-        if (this.authError) return; // Don't bother
+        if (this.authError) return;
 
         if (!SessionStorage.userId) {
             try {

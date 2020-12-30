@@ -37,6 +37,7 @@ export class AuthedApi {
         } else {
             qs["scalar_token"] = SessionStorage.scalarToken;
         }
+
         return Object.assign({}, opts, {params: qs, headers: headers});
     }
 }

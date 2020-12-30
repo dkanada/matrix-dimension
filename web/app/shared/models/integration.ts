@@ -1,5 +1,5 @@
 export interface FE_Integration {
-    category: "bot" | "complex-bot" | "bridge" | "widget";
+    category: "bot" | "bridge" | "widget";
     type: string;
     requirements: FE_IntegrationRequirement[];
     isEncryptionSupported: boolean;
@@ -64,11 +64,6 @@ export interface FE_Sticker {
     };
 }
 
-export interface FE_BigBlueButtonJoin {
-    // The meeting URL the client should load to join the meeting
-    url: string;
-}
-
 export interface FE_StickerConfig {
     enabled: boolean;
     stickerBot: string;
@@ -77,32 +72,6 @@ export interface FE_StickerConfig {
 
 export interface FE_Widget extends FE_Integration {
     options: any;
-}
-
-export interface FE_EtherpadWidget extends FE_Widget {
-    options: {
-        defaultUrl: string;
-    };
-}
-
-export interface FE_JitsiWidget extends FE_Widget {
-    options: {
-        jitsiDomain: string;
-        scriptUrl: string;
-        useDomainAsDefault: boolean;
-    };
-}
-
-export interface FE_BigBlueButtonWidget extends FE_Widget {
-    options: {
-        conferenceUrl: string;
-    };
-}
-
-export interface FE_WhiteBoardWidget extends FE_Widget {
-    options: {
-        defaultUrl: string;
-    };
 }
 
 export interface FE_IntegrationRequirement {

@@ -26,7 +26,7 @@ export class AdminComponent {
         let currentRoute = this.router.routerState.snapshot.url;
         currentRoute = currentRoute.substring(currentRoute.indexOf('/admin'));
 
-        // Specifically for the dashboard handling
+        // specifically for the dashboard handling
         if (adminRoute === "" && !currentRoute.endsWith("/")) currentRoute = currentRoute + "/";
 
         if (exact) return currentRoute === "/admin/" + adminRoute;
