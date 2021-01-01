@@ -16,10 +16,8 @@ import { RiotComponent } from "./riot/riot.component";
 import { ScalarClientApiService } from "./shared/services/scalar/scalar-client-api.service";
 import { ToasterModule, ToasterService } from "angular2-toaster";
 import { ScalarCloseComponent } from "./riot/scalar-close/scalar-close.component";
-import { GenericWidgetWrapperComponent } from "./widget-wrappers/generic/generic.component";
 import { ToggleFullscreenDirective } from "./shared/directives/toggle-fullscreen.directive";
 import { FullscreenButtonComponent } from "./elements/fullscreen-button/fullscreen-button.component";
-import { VideoWidgetWrapperComponent } from "./widget-wrappers/video/video.component";
 import { PageHeaderComponent } from "./page-header/page-header.component";
 import { SpinnerComponent } from "./elements/spinner/spinner.component";
 import { RiotHomeComponent } from "./riot/riot-home/home.component";
@@ -28,18 +26,14 @@ import { ScalarServerApiService } from "./shared/services/scalar/scalar-server-a
 import { AdminApiService } from "./shared/services/admin/admin-api.service";
 import { ServiceLocator } from "./shared/registry/locator.service";
 import { IboxComponent } from "./elements/ibox/ibox.component";
-import { CustomWidgetConfigComponent } from "./configs/widget/custom/custom.widget.component";
-import { ConfigScreenWidgetComponent } from "./configs/widget/config-screen/config-screen.widget.component";
 import { NameService } from "./shared/services/name.service";
 import { AdminComponent } from "./admin/admin.component";
 import { AdminHomeComponent } from "./admin/home/home.component";
-import { AdminWidgetsComponent } from "./admin/widgets/widgets.component";
 import { AdminIntegrationsApiService } from "./shared/services/admin/admin-integrations-api.service";
 import { IntegrationsApiService } from "./shared/services/integrations/integrations-api.service";
 import { WidgetApiService } from "./shared/services/integrations/widget-api.service";
 import { AdminAppserviceApiService } from "./shared/services/admin/admin-appservice-api.service";
 import { AdminUpstreamApiService } from "./shared/services/admin/admin-upstream-api.service";
-import { ConfigSimpleBotComponent } from "./configs/simple-bot/simple-bot.component";
 import { ScreenshotCapableDirective } from "./shared/directives/screenshot-capable.directive";
 import { AdminStickersApiService } from "./shared/services/admin/admin-stickers-api-service";
 import { AdminStickerPacksComponent } from "./admin/sticker-packs/sticker-packs.component";
@@ -48,16 +42,9 @@ import { MediaService } from "./shared/services/media.service";
 import { StickerApiService } from "./shared/services/integrations/sticker-api.service";
 import { StickerpickerComponent } from "./configs/stickerpicker/stickerpicker.component";
 import { StickerPickerWidgetWrapperComponent } from "./widget-wrappers/sticker-picker/sticker-picker.component";
-import { GenericFullscreenWidgetWrapperComponent } from "./widget-wrappers/generic-fullscreen/generic-fullscreen.component";
 import { AdminLogoutConfirmationDialogComponent } from "./admin/home/logout-confirmation/logout-confirmation.component";
-import { ReauthExampleWidgetWrapperComponent } from "./widget-wrappers/reauth-example/reauth-example.component";
-import { ManagerTestWidgetWrapperComponent } from "./widget-wrappers/manager-test/manager-test.component";
 import { AdminTermsApiService } from "./shared/services/admin/admin-terms-api.service";
-import { AdminTermsComponent } from "./admin/terms/terms.component";
 import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
-import { AdminNewEditTermsComponent } from "./admin/terms/new-edit/new-edit.component";
-import { AdminTermsNewEditPublishDialogComponent } from "./admin/terms/new-edit/publish/publish.component";
-import { TermsWidgetWrapperComponent } from "./widget-wrappers/terms/terms.component";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
@@ -96,31 +83,18 @@ export function HttpLoaderFactory(http: HttpClient) {
         PageHeaderComponent,
         SpinnerComponent,
         ScalarCloseComponent,
-        GenericWidgetWrapperComponent,
         ToggleFullscreenDirective,
         FullscreenButtonComponent,
-        VideoWidgetWrapperComponent,
         RiotHomeComponent,
         IboxComponent,
-        ConfigScreenWidgetComponent,
-        CustomWidgetConfigComponent,
         AdminComponent,
         AdminHomeComponent,
-        AdminWidgetsComponent,
-        ConfigSimpleBotComponent,
         ScreenshotCapableDirective,
         AdminStickerPacksComponent,
         AdminStickerPackPreviewComponent,
         StickerpickerComponent,
         StickerPickerWidgetWrapperComponent,
-        GenericFullscreenWidgetWrapperComponent,
         AdminLogoutConfirmationDialogComponent,
-        ReauthExampleWidgetWrapperComponent,
-        ManagerTestWidgetWrapperComponent,
-        AdminTermsComponent,
-        AdminNewEditTermsComponent,
-        AdminTermsNewEditPublishDialogComponent,
-        TermsWidgetWrapperComponent,
     ],
     providers: [
         AdminApiService,
@@ -141,10 +115,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ],
     bootstrap: [AppComponent],
     entryComponents: [
-        ConfigSimpleBotComponent,
         AdminStickerPackPreviewComponent,
         AdminLogoutConfirmationDialogComponent,
-        AdminTermsNewEditPublishDialogComponent,
     ]
 })
 export class AppModule {
