@@ -20,7 +20,6 @@ import { ToggleFullscreenDirective } from "./shared/directives/toggle-fullscreen
 import { FullscreenButtonComponent } from "./elements/fullscreen-button/fullscreen-button.component";
 import { PageHeaderComponent } from "./page-header/page-header.component";
 import { SpinnerComponent } from "./elements/spinner/spinner.component";
-import { RiotHomeComponent } from "./riot/riot-home/home.component";
 import { IntegrationBagComponent } from "./integration-bag/integration-bag.component";
 import { ScalarServerApiService } from "./shared/services/scalar/scalar-server-api.service";
 import { AdminApiService } from "./shared/services/admin/admin-api.service";
@@ -80,7 +79,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         ScalarCloseComponent,
         ToggleFullscreenDirective,
         FullscreenButtonComponent,
-        RiotHomeComponent,
         IboxComponent,
         ScreenshotCapableDirective,
         StickerpickerComponent,
