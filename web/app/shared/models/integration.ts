@@ -17,16 +17,6 @@ export interface FE_Integration {
     _notSupportedReason: string;
 }
 
-export interface FE_SimpleBot extends FE_Integration {
-    userId: string;
-}
-
-export interface FE_ComplexBot<T> extends FE_Integration {
-    notificationUserId: string;
-    botUserId?: string;
-    config: T;
-}
-
 export interface FE_Bridge<T> extends FE_Integration {
     config: T;
 }

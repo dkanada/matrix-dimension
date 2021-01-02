@@ -10,7 +10,6 @@ import { FormsModule } from "@angular/forms";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
-import { HomeComponent } from "./home/home.component";
 import { createNewHosts, removeNgStyles } from "@angularclass/hmr";
 import { RiotComponent } from "./riot/riot.component";
 import { ScalarClientApiService } from "./shared/services/scalar/scalar-client-api.service";
@@ -20,15 +19,12 @@ import { ToggleFullscreenDirective } from "./shared/directives/toggle-fullscreen
 import { PageHeaderComponent } from "./elements/header/header.component";
 import { SpinnerComponent } from "./elements/spinner/spinner.component";
 import { ScalarServerApiService } from "./shared/services/scalar/scalar-server-api.service";
-import { AdminApiService } from "./shared/services/admin/admin-api.service";
 import { ServiceLocator } from "./shared/registry/locator.service";
-import { IboxComponent } from "./elements/ibox/ibox.component";
 import { NameService } from "./shared/services/name.service";
 import { AdminIntegrationsApiService } from "./shared/services/admin/admin-integrations-api.service";
 import { IntegrationsApiService } from "./shared/services/integrations/integrations-api.service";
 import { WidgetApiService } from "./shared/services/integrations/widget-api.service";
 import { AdminAppserviceApiService } from "./shared/services/admin/admin-appservice-api.service";
-import { AdminUpstreamApiService } from "./shared/services/admin/admin-upstream-api.service";
 import { ScreenshotCapableDirective } from "./shared/directives/screenshot-capable.directive";
 import { AdminStickersApiService } from "./shared/services/admin/admin-stickers-api-service";
 import { MediaService } from "./shared/services/media.service";
@@ -69,19 +65,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     ],
     declarations: [
         AppComponent,
-        HomeComponent,
         RiotComponent,
         PageHeaderComponent,
         SpinnerComponent,
         ScalarCloseComponent,
         ToggleFullscreenDirective,
-        IboxComponent,
         ScreenshotCapableDirective,
         StickerpickerComponent,
         StickerPickerWidgetWrapperComponent,
     ],
     providers: [
-        AdminApiService,
         AdminIntegrationsApiService,
         IntegrationsApiService,
         WidgetApiService,
@@ -89,7 +82,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         ScalarServerApiService,
         NameService,
         AdminAppserviceApiService,
-        AdminUpstreamApiService,
         AdminStickersApiService,
         MediaService,
         StickerApiService,

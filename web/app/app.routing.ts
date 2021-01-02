@@ -1,11 +1,10 @@
 import { RouterModule, Routes } from "@angular/router";
-import { HomeComponent } from "./home/home.component";
 import { RiotComponent } from "./riot/riot.component";
 import { StickerpickerComponent } from "./config/config.component";
 import { StickerPickerWidgetWrapperComponent } from "./widget/widget.component";
 
 const routes: Routes = [
-    {path: "", component: HomeComponent},
+    {path: "", pathMatch: "full", redirectTo: "riot-app"},
     {path: "riot", pathMatch: "full", redirectTo: "riot-app"},
     {path: "element", pathMatch: "full", redirectTo: "riot-app"},
     {
