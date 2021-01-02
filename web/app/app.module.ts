@@ -17,10 +17,9 @@ import { ScalarClientApiService } from "./shared/services/scalar/scalar-client-a
 import { ToasterModule, ToasterService } from "angular2-toaster";
 import { ScalarCloseComponent } from "./riot/scalar-close/scalar-close.component";
 import { ToggleFullscreenDirective } from "./shared/directives/toggle-fullscreen.directive";
-import { FullscreenButtonComponent } from "./elements/fullscreen-button/fullscreen-button.component";
 import { PageHeaderComponent } from "./page-header/page-header.component";
 import { SpinnerComponent } from "./elements/spinner/spinner.component";
-import { IntegrationBagComponent } from "./integration-bag/integration-bag.component";
+import { IntegrationBagComponent } from "./elements/integration-bag/integration-bag.component";
 import { ScalarServerApiService } from "./shared/services/scalar/scalar-server-api.service";
 import { AdminApiService } from "./shared/services/admin/admin-api.service";
 import { ServiceLocator } from "./shared/registry/locator.service";
@@ -78,7 +77,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         SpinnerComponent,
         ScalarCloseComponent,
         ToggleFullscreenDirective,
-        FullscreenButtonComponent,
         IboxComponent,
         ScreenshotCapableDirective,
         StickerpickerComponent,
