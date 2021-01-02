@@ -17,9 +17,8 @@ import { ScalarClientApiService } from "./shared/services/scalar/scalar-client-a
 import { ToasterModule, ToasterService } from "angular2-toaster";
 import { ScalarCloseComponent } from "./riot/scalar-close/scalar-close.component";
 import { ToggleFullscreenDirective } from "./shared/directives/toggle-fullscreen.directive";
-import { PageHeaderComponent } from "./elements/page-header/page-header.component";
+import { PageHeaderComponent } from "./elements/header/header.component";
 import { SpinnerComponent } from "./elements/spinner/spinner.component";
-import { IntegrationBagComponent } from "./elements/integration-bag/integration-bag.component";
 import { ScalarServerApiService } from "./shared/services/scalar/scalar-server-api.service";
 import { AdminApiService } from "./shared/services/admin/admin-api.service";
 import { ServiceLocator } from "./shared/registry/locator.service";
@@ -35,7 +34,7 @@ import { AdminStickersApiService } from "./shared/services/admin/admin-stickers-
 import { MediaService } from "./shared/services/media.service";
 import { StickerApiService } from "./shared/services/integrations/sticker-api.service";
 import { StickerpickerComponent } from "./config/config.component";
-import { StickerPickerWidgetWrapperComponent } from "./widget-wrappers/sticker-picker/sticker-picker.component";
+import { StickerPickerWidgetWrapperComponent } from "./widget/widget.component";
 import { AdminTermsApiService } from "./shared/services/admin/admin-terms-api.service";
 import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
@@ -72,7 +71,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         AppComponent,
         HomeComponent,
         RiotComponent,
-        IntegrationBagComponent,
         PageHeaderComponent,
         SpinnerComponent,
         ScalarCloseComponent,

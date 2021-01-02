@@ -1,5 +1,5 @@
 // component styles are encapsulated and only applied to their components
-@import "../../../style/themes/themes";
+@import "../../style/themes/themes";
 
 @include themifyComponent() {
   .control-page {

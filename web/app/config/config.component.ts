@@ -8,8 +8,8 @@ import { WIDGET_STICKERS } from "../shared/models/widget";
 import { TranslateService } from "@ngx-translate/core";
 
 @Component({
-    templateUrl: "stickerpicker.component.html",
-    styleUrls: ["stickerpicker.component.scss"],
+    templateUrl: "config.component.html",
+    styleUrls: ["config.component.scss"],
 })
 export class StickerpickerComponent implements OnInit {
 

@@ -2,7 +2,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { RiotComponent } from "./riot/riot.component";
 import { StickerpickerComponent } from "./config/config.component";
-import { StickerPickerWidgetWrapperComponent } from "./widget-wrappers/sticker-picker/sticker-picker.component";
+import { StickerPickerWidgetWrapperComponent } from "./widget/widget.component";
 
 const routes: Routes = [
     {path: "", component: HomeComponent},
