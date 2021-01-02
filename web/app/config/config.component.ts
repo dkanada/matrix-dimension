@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { FE_UserStickerPack } from "../../shared/models/integration";
-import { StickerApiService } from "../../shared/services/integrations/sticker-api.service";
+import { FE_UserStickerPack } from "../shared/models/integration";
+import { StickerApiService } from "../shared/services/integrations/sticker-api.service";
 import { ToasterService } from "angular2-toaster";
-import { MediaService } from "../../shared/services/media.service";
-import { ScalarClientApiService } from "../../shared/services/scalar/scalar-client-api.service";
-import { WIDGET_STICKERS } from "../../shared/models/widget";
+import { MediaService } from "../shared/services/media.service";
+import { ScalarClientApiService } from "../shared/services/scalar/scalar-client-api.service";
+import { WIDGET_STICKERS } from "../shared/models/widget";
 import { TranslateService } from "@ngx-translate/core";
 
 @Component({
