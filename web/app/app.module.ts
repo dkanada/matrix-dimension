@@ -27,8 +27,6 @@ import { AdminApiService } from "./shared/services/admin/admin-api.service";
 import { ServiceLocator } from "./shared/registry/locator.service";
 import { IboxComponent } from "./elements/ibox/ibox.component";
 import { NameService } from "./shared/services/name.service";
-import { AdminComponent } from "./admin/admin.component";
-import { AdminHomeComponent } from "./admin/home/home.component";
 import { AdminIntegrationsApiService } from "./shared/services/admin/admin-integrations-api.service";
 import { IntegrationsApiService } from "./shared/services/integrations/integrations-api.service";
 import { WidgetApiService } from "./shared/services/integrations/widget-api.service";
@@ -36,13 +34,10 @@ import { AdminAppserviceApiService } from "./shared/services/admin/admin-appserv
 import { AdminUpstreamApiService } from "./shared/services/admin/admin-upstream-api.service";
 import { ScreenshotCapableDirective } from "./shared/directives/screenshot-capable.directive";
 import { AdminStickersApiService } from "./shared/services/admin/admin-stickers-api-service";
-import { AdminStickerPacksComponent } from "./admin/sticker-packs/sticker-packs.component";
-import { AdminStickerPackPreviewComponent } from "./admin/sticker-packs/preview/preview.component";
 import { MediaService } from "./shared/services/media.service";
 import { StickerApiService } from "./shared/services/integrations/sticker-api.service";
 import { StickerpickerComponent } from "./configs/stickerpicker/stickerpicker.component";
 import { StickerPickerWidgetWrapperComponent } from "./widget-wrappers/sticker-picker/sticker-picker.component";
-import { AdminLogoutConfirmationDialogComponent } from "./admin/home/logout-confirmation/logout-confirmation.component";
 import { AdminTermsApiService } from "./shared/services/admin/admin-terms-api.service";
 import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
@@ -87,14 +82,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         FullscreenButtonComponent,
         RiotHomeComponent,
         IboxComponent,
-        AdminComponent,
-        AdminHomeComponent,
         ScreenshotCapableDirective,
-        AdminStickerPacksComponent,
-        AdminStickerPackPreviewComponent,
         StickerpickerComponent,
         StickerPickerWidgetWrapperComponent,
-        AdminLogoutConfirmationDialogComponent,
     ],
     providers: [
         AdminApiService,
@@ -114,10 +104,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         {provide: Window, useValue: window},
     ],
     bootstrap: [AppComponent],
-    entryComponents: [
-        AdminStickerPackPreviewComponent,
-        AdminLogoutConfirmationDialogComponent,
-    ]
 })
 export class AppModule {
     constructor(public appRef: ApplicationRef, injector: Injector) {
