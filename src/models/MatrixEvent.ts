@@ -7,6 +7,4 @@ export interface SimplifiedMatrixEvent {
     sender: string;
     type: string;
     unsigned: any;
-
-    // Other keys would be stuff related to the actual event, like membership and state_key
 }

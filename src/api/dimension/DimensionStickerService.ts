@@ -4,8 +4,6 @@ import StickerPack from "../../db/models/StickerPack";
 import Sticker from "../../db/models/Sticker";
 import UserStickerPack from "../../db/models/UserStickerPack";
 import { ApiError } from "../ApiError";
-import { StickerpackMetadataDownloader } from "../../utils/StickerpackMetadataDownloader";
-import { MatrixStickerBot } from "../../matrix/MatrixStickerBot";
 import config from "../../config";
 import { ROLE_USER } from "../security/MatrixSecurity";
 
@@ -47,10 +45,6 @@ export interface MemoryUserStickerPack extends MemoryStickerPack {
 
 interface SetSelectedRequest {
     isSelected: boolean;
-}
-
-interface ImportPackRequest {
-    packUrl: string;
 }
 
 interface StickerConfig {
@@ -148,31 +142,6 @@ export class DimensionStickerService {
         return {}; // 200 OK
     }
 
-    @POST
-    @Path("packs/import")
-    @Security(ROLE_USER)
-    public async importPack(request: ImportPackRequest): Promise<MemoryUserStickerPack> {
-        if (!config.stickers.enabled) {
-            throw new ApiError(400, "Custom stickerpacks are disabled on this homeserver");
-        }
-
-        const packUrl = request.packUrl.endsWith(".json") ? request.packUrl : `${request.packUrl}.json`;
-        const metadata = await StickerpackMetadataDownloader.getMetadata(packUrl);
-        await MatrixStickerBot.trackStickerpack(metadata.roomAlias);
-
-        const stickerPacks = await StickerPack.findAll({where: {trackingRoomAlias: metadata.roomAlias}});
-        Cache.for(CACHE_STICKERS).clear();
-
-        if (stickerPacks.length <= 0) throw new ApiError(500, "Stickerpack not imported");
-        const pack = stickerPacks[0];
-
-        // Simulate a call to setPackSelected
-        await this.setPackSelected(pack.id, {isSelected: true});
-
-        const memoryPack = await DimensionStickerService.packToMemory(pack);
-        return Object.assign({isSelected: true}, memoryPack);
-    }
-
     public static async packToMemory(pack: StickerPack): Promise<MemoryStickerPack> {
         const stickers = await Sticker.findAll({where: {packId: pack.id}});
         return {
@@ -209,5 +178,4 @@ export class DimensionStickerService {
             trackingRoomAlias: pack.trackingRoomAlias,
         };
     }
-
 }
