@@ -139,7 +139,7 @@ export class DimensionStickerService {
         await userPack.save();
         Cache.for(CACHE_STICKERS).del("packs_" + userId);
 
-        return {}; // 200 OK
+        return {};
     }
 
     public static async packToMemory(pack: StickerPack): Promise<MemoryStickerPack> {

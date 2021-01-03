@@ -2,7 +2,7 @@ import { GET, Path, PathParam, PUT, QueryParam } from "typescript-rest";
 import { ApiError } from "../ApiError";
 import { LogService } from "matrix-js-snippets";
 import { SimplifiedMatrixEvent } from "../../models/MatrixEvent";
-import { AppserviceStore } from "../../db/AppserviceStore";
+import { AppServiceStore } from "../../db/AppServiceStore";
 
 interface AppServiceTransaction {
     events: SimplifiedMatrixEvent[];
@@ -12,18 +12,18 @@ interface AppServiceTransaction {
  * API for handling appservice traffic from a homeserver
  */
 @Path("/_matrix/appservice/r0")
-@Path("/_matrix/app/v1") // the matrix spec version
+@Path("/_matrix/app/v1")
 export class MatrixAppServiceApiService {
 
     @PUT
     @Path("/transactions/:txnId")
     public async onTransaction(@QueryParam("access_token") homeserverToken: string, @PathParam("txnId") txnId: string, _txn: AppServiceTransaction): Promise<any> {
         try {
-            const appservice = await AppserviceStore.getByHomeserverToken(homeserverToken);
+            const appservice = await AppServiceStore.getByHomeserverToken(homeserverToken);
 
             // We don't handle the transaction at all - we just don't want the homeserver to consider us down
             LogService.verbose("MatrixAppServiceApiService", "Accepting transaction " + txnId + " for appservice " + appservice.id + " blindly");
-            return {}; // 200 OK
+            return {};
         } catch (err) {
             LogService.error("MatrixAppServiceApiService", err);
             throw new ApiError(403, {errcode: "M_FORBIDDEN"});
@@ -34,7 +34,7 @@ export class MatrixAppServiceApiService {
     @Path("/room/:alias")
     public async getRoom(@QueryParam("access_token") homeserverToken: string, @PathParam("alias") roomAlias: string): Promise<any> {
         try {
-            const appservice = await AppserviceStore.getByHomeserverToken(homeserverToken);
+            const appservice = await AppServiceStore.getByHomeserverToken(homeserverToken);
 
             // We don't support room lookups
             LogService.verbose("MatrixAppServiceApiService", "404ing request for room " + roomAlias + " at appservice " + appservice.id);
@@ -50,10 +50,10 @@ export class MatrixAppServiceApiService {
     @Path("/user/:userId")
     public async getUser(@QueryParam("access_token") homeserverToken: string, @PathParam("userId") userId: string): Promise<any> {
         try {
-            const appservice = await AppserviceStore.getByHomeserverToken(homeserverToken);
+            const appservice = await AppServiceStore.getByHomeserverToken(homeserverToken);
 
             try {
-                const user = await AppserviceStore.getUser(appservice.id, userId);
+                const user = await AppServiceStore.getUser(appservice.id, userId);
                 return {
                     userId: user.id,
                     displayName: user.displayName,
@@ -70,5 +70,4 @@ export class MatrixAppServiceApiService {
             throw new ApiError(403, {errcode: "M_FORBIDDEN"});
         }
     }
-
 }

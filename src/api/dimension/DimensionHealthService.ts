@@ -11,6 +11,6 @@ export class DimensionHealthService {
     @Path("heartbeat")
     public async heartbeat(): Promise<any> {
         LogService.info("DimensionHealthService", "Heartbeat called");
-        return {}; // 200 OK
+        return {};
     }
 }

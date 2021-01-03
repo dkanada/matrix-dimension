@@ -1,10 +1,10 @@
 import AppService from "./models/AppService";
 import AppServiceUser from "./models/AppServiceUser";
 import * as randomString from "random-string";
-import { MatrixAppserviceClient } from "../matrix/MatrixAppserviceClient";
+import { MatrixAppServiceClient } from "../matrix/MatrixAppServiceClient";
 import { LogService } from "matrix-js-snippets";
 
-export class AppserviceStore {
+export class AppServiceStore {
 
     public static async create(userPrefix: string): Promise<AppService> {
         const id = "dimension-" + randomString({length: 25});
@@ -51,8 +51,8 @@ export class AppserviceStore {
         if (!appservice) throw new Error("Appservice not found");
 
         LogService.info("AppserviceStore", "Registering to own " + userId + " in appservice " + appserviceId);
-        const client = new MatrixAppserviceClient(appservice);
-        const localpart = AppserviceStore.getSafeUserId(userId.substring(1).split(":")[0]);
+        const client = new MatrixAppServiceClient(appservice);
+        const localpart = AppServiceStore.getSafeUserId(userId.substring(1).split(":")[0]);
         const response = await client.registerUser(localpart);
         LogService.info("AppserviceStore", "Successfully registered " + userId);
 
@@ -65,7 +65,7 @@ export class AppserviceStore {
 
     public static async getOrCreateUser(appserviceId: string, userId: string): Promise<AppServiceUser> {
         const user = await AppServiceUser.findOne({where: {appserviceId: appserviceId, id: userId}});
-        if (!user) return AppserviceStore.registerUser(appserviceId, userId);
+        if (!user) return AppServiceStore.registerUser(appserviceId, userId);
         return user;
     }
 

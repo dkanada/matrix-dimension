@@ -8,7 +8,7 @@ export interface MatrixUserResponse {
     user_id: string;
 }
 
-export class MatrixAppserviceClient {
+export class MatrixAppServiceClient {
 
     constructor(private appservice: AppService) {
     }

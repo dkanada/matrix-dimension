@@ -3,7 +3,7 @@ import { AutoWired } from "typescript-ioc/es6";
 import { URL } from "url";
 import config from "../../config";
 
-interface WellknownResponse {
+interface WellKnownResponse {
     "m.integrations_widget": {
         url: string;
         data: {
@@ -17,11 +17,11 @@ interface WellknownResponse {
  */
 @Path("/.well-known/matrix")
 @AutoWired
-export class MatrixWellknownService {
+export class MatrixWellKnownService {
 
     @GET
     @Path("integrations")
-    public async getIntegrations(): Promise<WellknownResponse> {
+    public async getIntegrations(): Promise<WellKnownResponse> {
         const parsed = new URL(config.dimension.publicUrl);
 
         parsed.pathname = '/element';

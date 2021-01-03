@@ -3,7 +3,7 @@ import { ScalarAccountResponse, ScalarLogoutResponse, ScalarRegisterResponse } f
 import * as request from "request";
 import { LogService } from "matrix-js-snippets";
 import Upstream from "../db/models/Upstream";
-import { SCALAR_API_VERSION } from "../utils/common-constants";
+import { SCALAR_API_VERSION } from "../utils/constants";
 import { ITermsResponse } from "../api/controllers/TermsController";
 
 const REGISTER_ROUTE = "/register";

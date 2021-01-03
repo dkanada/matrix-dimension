@@ -9,9 +9,9 @@ import moment = require("moment");
 interface UrlPreviewResponse {
     cached_response: boolean;
     page_title_cache_item: {
-        expires: string; // "2017-12-18T04:20:04.001806738Z"
+        expires: string;
         cached_response_err: string;
-        cached_title: string; // the actual thing Element uses
+        cached_title: string;
     };
     error: {
         message: string;
@@ -38,10 +38,10 @@ export class ScalarWidgetService {
 
         try {
             const preview = await client.getUrlPreview(url);
-            const expirationTime = 60 * 80 * 1000; // 1 hour
+            const expirationTime = 60 * 80 * 1000;
             const expirationAsString = moment().add(expirationTime, "milliseconds").toISOString();
             const cachedItem = {
-                cached_response: false, // we're not cached yet
+                cached_response: false,
                 page_title_cache_item: {
                     expires: expirationAsString,
                     cached_response_err: null,
@@ -55,7 +55,6 @@ export class ScalarWidgetService {
             LogService.error("ScalarWidgetService", "Error getting URL preview");
             LogService.error("ScalarWidgetService", err);
             return <UrlPreviewResponse>{
-                // All of this is to match scalar's response :/
                 cached_response: false,
                 page_title_cache_item: {
                     expires: null,

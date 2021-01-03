@@ -61,6 +61,7 @@ export default class MatrixSecurity implements ServiceAuthenticator {
                     if (!header.startsWith("Bearer ")) {
                         return res.status(401).json({errcode: "M_INVALID_TOKEN", error: "Invalid token"});
                     }
+
                     token = header.substring("Bearer ".length);
                 } else if (req.query && req.query.access_token) {
                     token = req.query.access_token;

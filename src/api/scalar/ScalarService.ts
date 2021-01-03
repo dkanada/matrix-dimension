@@ -65,7 +65,7 @@ export class ScalarService {
     @GET
     @Path("ping")
     public async ping(): Promise<any> {
-        return {}; // 200 OK
+        return {};
     }
 
 }

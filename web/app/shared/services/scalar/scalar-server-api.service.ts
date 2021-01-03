@@ -5,7 +5,7 @@ import {
     FE_ScalarRegisterResponse
 } from "../../models/scalar-server-responses";
 import { AuthedApi } from "../authed-api";
-import { SCALAR_API_VERSION } from "../../../../../src/utils/common-constants";
+import { SCALAR_API_VERSION } from "../../../../../src/utils/constants";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable()
