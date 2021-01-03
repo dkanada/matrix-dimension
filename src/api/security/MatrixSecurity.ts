@@ -6,7 +6,6 @@ import AccountController from "../controllers/AccountController";
 import TermsController from "../controllers/TermsController";
 import config from "../../config";
 import { ScalarStore } from "../../db/ScalarStore";
-import { ScalarClient } from "../../scalar/ScalarClient";
 
 export interface ILoggedInUser {
     userId: string;
@@ -78,8 +77,7 @@ export default class MatrixSecurity implements ServiceAuthenticator {
 
                     const needUpstreams = !this.matchesAnyRoute(req, ADMIN_ROUTES);
                     if (needUpstreams) {
-                        const scalarKind = req.path.startsWith("/_matrix/integrations/v1/") ? ScalarClient.KIND_MATRIX_V1 : ScalarClient.KIND_LEGACY;
-                        const hasUpstreams = await ScalarStore.doesUserHaveTokensForAllUpstreams(req.user.userId, scalarKind);
+                        const hasUpstreams = await ScalarStore.doesUserHaveTokensForAllUpstreams(req.user.userId);
                         if (!hasUpstreams) {
                             return res.status(401).json({errcode: "M_INVALID_TOKEN", error: "Invalid token"});
                         }

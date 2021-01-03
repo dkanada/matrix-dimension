@@ -8,7 +8,7 @@ import * as BotSdk from "matrix-bot-sdk";
 LogService.configure(config.logging);
 LogService.info("index", "Starting dimension " + CURRENT_VERSION);
 
-// Redirect the bot-sdk logger to our logger
+// redirect the BotSdk to our logger
 BotSdk.LogService.setLogger({
     debug: (module: string, ...args: any[]) => args.map(a => LogService.info("BotSdk-" + module, a)),
     info: (module: string, ...args: any[]) => args.map(a => LogService.info("BotSdk-" + module, a)),

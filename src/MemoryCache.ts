@@ -41,17 +41,8 @@ class _CacheManager {
 
 export const Cache = new _CacheManager();
 
-export const CACHE_INTEGRATIONS = "integrations";
-export const CACHE_NEB = "neb";
-export const CACHE_UPSTREAM = "upstream";
 export const CACHE_SCALAR_ACCOUNTS = "scalar-accounts";
-export const CACHE_SCALAR_ONLINE_STATE = "scalar-online-state";
 export const CACHE_WIDGET_TITLES = "widget-titles";
 export const CACHE_FEDERATION = "federation";
-export const CACHE_IRC_BRIDGE = "irc-bridge";
 export const CACHE_STICKERS = "stickers";
-export const CACHE_TELEGRAM_BRIDGE = "telegram-bridge";
-export const CACHE_WEBHOOKS_BRIDGE = "webhooks-bridge";
-export const CACHE_SIMPLE_BOTS = "simple-bots";
-export const CACHE_SLACK_BRIDGE = "slack-bridge";
 export const CACHE_TERMS = "terms";

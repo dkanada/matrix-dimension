@@ -3,7 +3,6 @@ import { OpenId } from "../../models/OpenId";
 import AccountController, { IAccountInfoResponse, IAccountRegisteredResponse } from "../controllers/AccountController";
 import { AutoWired, Inject } from "typescript-ioc/es6";
 import { ILoggedInUser, ROLE_USER } from "../security/MatrixSecurity";
-import { ScalarClient } from "../../scalar/ScalarClient";
 
 /**
  * API for account management
@@ -21,7 +20,7 @@ export class MatrixAccountService {
     @POST
     @Path("register")
     public async register(request: OpenId): Promise<IAccountRegisteredResponse> {
-        return this.accountController.registerAccount(request, ScalarClient.KIND_MATRIX_V1);
+        return this.accountController.registerAccount(request);
     }
 
     @GET

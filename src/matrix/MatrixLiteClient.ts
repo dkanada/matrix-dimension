@@ -32,7 +32,7 @@ export class MatrixLiteClient {
         if (!baseUrl) baseUrl = config.homeserver.clientServerUrl;
         if (baseUrl.endsWith("/")) baseUrl = baseUrl.substring(0, baseUrl.length - 1);
 
-        // DO NOT RETURN THE ACCESS TOKEN.
+        // DO NOT RETURN THE ACCESS TOKEN
         return baseUrl + `/_matrix/media/r0/thumbnail/${serverName}/${contentId}?width=${width}&height=${height}&method=${method}&animated=${isAnimated}`;
     }
 
@@ -42,6 +42,7 @@ export class MatrixLiteClient {
             "/_matrix/client/r0/account/whoami",
             {access_token: this.accessToken}
         );
+
         return response['user_id'];
     }
 
@@ -49,7 +50,7 @@ export class MatrixLiteClient {
         return await doClientApiCall(
             "POST",
             `/_matrix/client/r0/user/${await this.whoAmI()}/openid/request_token`,
-            {access_token: this.accessToken}, {},
+            {access_token: this.accessToken},
         );
     }
 
@@ -57,7 +58,7 @@ export class MatrixLiteClient {
         return doClientApiCall(
             "POST",
             "/_matrix/client/r0/rooms/" + roomId + "/leave",
-            {access_token: this.accessToken}
+            {access_token: this.accessToken},
         );
     }
 
@@ -75,6 +76,7 @@ export class MatrixLiteClient {
             "/_matrix/client/r0/profile/" + (await this.whoAmI()) + "/displayname",
             {access_token: this.accessToken},
         );
+
         return response['displayname'];
     }
 
@@ -84,6 +86,7 @@ export class MatrixLiteClient {
             "/_matrix/client/r0/profile/" + (await this.whoAmI()) + "/avatar_url",
             {access_token: this.accessToken},
         );
+
         return response['avatar_url'];
     }
 

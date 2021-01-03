@@ -54,7 +54,7 @@ export default class AccountController {
      * @param {string} scalarKind The kind of scalar client to use.
      * @returns {Promise<IAccountRegisteredResponse>} Resolves when registered.
      */
-    public async registerAccount(openId: OpenId, scalarKind: string): Promise<IAccountRegisteredResponse> {
+    public async registerAccount(openId: OpenId): Promise<IAccountRegisteredResponse> {
         if (!openId || !openId.matrix_server_name || !openId.access_token) {
             throw new ApiError(400, "Missing OpenID information");
         }
@@ -69,7 +69,7 @@ export default class AccountController {
 
         const user = await User.findByPk(mxUserId);
         if (!user) {
-            // There's a small chance we'll get a validation error because of:
+            // small chance we get a validation error due to the following issue
             // https://github.com/vector-im/riot-web/issues/5846
             LogService.verbose("AccountController", "User " + mxUserId + " never seen before - creating");
             await User.create({userId: mxUserId});
@@ -99,8 +99,10 @@ export default class AccountController {
                 const client = new ScalarClient(token.upstream, ScalarClient.KIND_MATRIX_V1);
                 await client.logout(token.scalarToken);
             }
+
             await token.destroy();
         }
+
         Cache.for(CACHE_SCALAR_ACCOUNTS).clear();
         return {};
     }

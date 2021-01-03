@@ -4,7 +4,7 @@ import User from "./models/User";
 
 export class ScalarStore {
 
-    public static async doesUserHaveTokensForAllUpstreams(userId: string, scalarKind: string): Promise<boolean> {
+    public static async doesUserHaveTokensForAllUpstreams(userId: string): Promise<boolean> {
         const scalarTokens = await UserScalarToken.findAll({where: {userId: userId}});
         const hasDimensionToken = scalarTokens.filter(t => t.isDimensionToken).length >= 1;
 
