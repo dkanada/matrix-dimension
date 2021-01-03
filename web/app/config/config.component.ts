@@ -17,13 +17,6 @@ export class StickerpickerComponent implements OnInit {
     public isUpdating = false;
     public packs: FE_UserStickerPack[];
 
-    // Import stuff
-    public packUrl = "";
-    public isImporting = false;
-    public customEnabled = false;
-    public managerUrl: string;
-    public stickerBot: string;
-
     constructor(private stickerApi: StickerApiService,
                 private media: MediaService,
                 private scalarClient: ScalarClientApiService,
@@ -43,28 +36,6 @@ export class StickerpickerComponent implements OnInit {
             console.error(e);
             this.translate.get('Failed to load sticker packs').subscribe((res: string) => {this.toaster.pop("error", res); });
         }
-
-        this.stickerApi.getConfig().then(config => {
-            this.customEnabled = config.enabled;
-            this.managerUrl = config.managerUrl;
-            this.stickerBot = config.stickerBot;
-        }).catch(err => console.error(err));
-    }
-
-    public importPack() {
-        this.isImporting = true;
-        this.stickerApi.importStickerpack(this.packUrl).then(pack => {
-            // Insert at top for visibility
-            this.packs.splice(0, 0, pack);
-            this.packUrl = "";
-            this.isImporting = false;
-            this.translate.get('Stickerpack added').subscribe((res: string) => {this.toaster.pop("success", res); });
-            this.addWidget();
-        }).catch(err => {
-            console.error(err);
-            this.isImporting = false;
-            this.translate.get('Error adding stickerpack').subscribe((res: string) => {this.toaster.pop("error", res); });
-        });
     }
 
     public getThumbnailUrl(mxc: string, width: number, height: number, method: "crop" | "scale" = "scale"): string {
@@ -80,7 +51,7 @@ export class StickerpickerComponent implements OnInit {
             if (this.packs.filter(p => p.isSelected).length > 0) this.addWidget();
         }).catch(err => {
             console.error(err);
-            pack.isSelected = !pack.isSelected; // revert change
+            pack.isSelected = !pack.isSelected;
             this.isUpdating = false;
             this.translate.get('Error updating stickers').subscribe((res: string) => {this.toaster.pop("error", res); });
         });

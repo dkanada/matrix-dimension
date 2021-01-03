@@ -15,13 +15,16 @@ See [docs/installing.md](./docs/installing.md) for more information on running D
 1. **Check that federation is enabled and working on your homeserver.** If you're not intentionally
 running Dimension in a non-federated environment, make sure that your homeserver is configured
 correctly. If you are running in a non-federated environment, consult [docs/unfederated.md](./docs/unfederated.md).
+
 2. **Check your SRV records and .well-known delegation.** If you are using SRV records to point to your
 federation port, make sure that the hostname and port are correct, and that HTTPS is listening on that
 port. Dimension will use the first record it sees and will only communicate over HTTPS. If you're using
 .well-known delegation for federation, double check that is set up correctly.
+
 3. **Verify the homeserver information in your configuration.** The name, access token, and client/
 server API URL all need to be set to point towards your homeserver. It may also be necessary to set the
 federation URL if you're running a private server.
+
 4. **Run the troubleshooter.** If you're on Element, type `/addwidget https://dimension.t2bot.io/widgets/manager-test`
 in a private room then click the button.
 
