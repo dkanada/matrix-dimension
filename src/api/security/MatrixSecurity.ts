@@ -44,8 +44,10 @@ export default class MatrixSecurity implements ServiceAuthenticator {
             if (config.admins.includes(req.user.userId)) {
                 roles.push(ROLE_ADMIN);
             }
+
             return roles;
         }
+
         return [];
     }
 
@@ -122,6 +124,7 @@ export default class MatrixSecurity implements ServiceAuthenticator {
             if (route.method === '*' && req.path.startsWith(route.path)) {
                 return true;
             }
+
             if (route.method === req.method && route.path === req.path) {
                 return true;
             }
@@ -129,5 +132,4 @@ export default class MatrixSecurity implements ServiceAuthenticator {
 
         return false;
     }
-
 }
