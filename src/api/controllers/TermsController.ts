@@ -11,7 +11,6 @@ import { LogService } from "matrix-js-snippets";
 import { ScalarClient } from "../../scalar/ScalarClient";
 import { md5 } from "../../utils/hashing";
 import TermsUpstreamRecord from "../../db/models/TermsUpstreamRecord";
-import { ScalarStore } from "../../db/ScalarStore";
 
 export interface ILanguagePolicy {
     name: string;
@@ -93,27 +92,6 @@ export default class TermsController {
 
         const missing = Object.values(latest).filter(d => !signed.find(s => s.termsId === d.id));
         if (missing.length > 0) return true;
-
-        // Test upstream terms for the user
-        const tokensForUser = await UserScalarToken.findAll({where: {userId: user.userId}, include: [Upstream]});
-        const upstreamTokens = tokensForUser.filter(t => t.upstream);
-        for (const upstreamToken of upstreamTokens) {
-            try {
-                const online = await ScalarStore.isUpstreamOnline(upstreamToken.upstream, ScalarClient.KIND_MATRIX_V1);
-                if (!online) {
-                    LogService.warn("TermsController", `Upstream ${upstreamToken.upstream.id} is offline - skipping terms check`);
-                    continue;
-                }
-
-                const scalarClient = new ScalarClient(upstreamToken.upstream, ScalarClient.KIND_MATRIX_V1);
-                await scalarClient.getAccount(upstreamToken.scalarToken);
-                // 200 OK means we're fine
-            } catch (e) {
-                if (e.statusCode === 403 && e.body && e.body.errcode === 'M_TERMS_NOT_SIGNED') {
-                    return true;
-                }
-            }
-        }
 
         return false;
     }

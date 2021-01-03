@@ -40,7 +40,7 @@ export default class AccountController {
 
         try {
             const user = await ScalarStore.getTokenOwner(scalarToken);
-            Cache.for(CACHE_SCALAR_ACCOUNTS).put(scalarToken, user.userId, 30 * 60 * 1000); // 30 minutes
+            Cache.for(CACHE_SCALAR_ACCOUNTS).put(scalarToken, user.userId, 30 * 60 * 1000);
             return user.userId;
         } catch (err) {
             LogService.error("ScalarService", err);
@@ -74,26 +74,6 @@ export default class AccountController {
             LogService.verbose("AccountController", "User " + mxUserId + " never seen before - creating");
             await User.create({userId: mxUserId});
         }
-
-        const upstreams = await Upstream.findAll();
-        await Promise.all(upstreams.map(async upstream => {
-            if (!await ScalarStore.isUpstreamOnline(upstream, scalarKind)) {
-                LogService.warn("AccountController", `Skipping registration for ${mxUserId} on upstream ${upstream.id} (${upstream.name}) because it is offline`);
-                return null;
-            }
-            const tokens = await UserScalarToken.findAll({where: {userId: mxUserId, upstreamId: upstream.id}});
-            if (!tokens || tokens.length === 0) {
-                LogService.info("AccountController", "Registering " + mxUserId + " for a token at upstream " + upstream.id + " (" + upstream.name + ")");
-                const client = new ScalarClient(upstream);
-                const response = await client.register(openId);
-                return UserScalarToken.create({
-                    userId: mxUserId,
-                    scalarToken: response.scalar_token,
-                    isDimensionToken: false,
-                    upstreamId: upstream.id,
-                });
-            }
-        }).filter(token => !!token));
 
         const dimensionToken = randomString({length: 25});
         const dimensionScalarToken = await UserScalarToken.create({
