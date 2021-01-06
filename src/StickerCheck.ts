@@ -67,10 +67,13 @@ class StickerCheck {
 
         const stickers = await Sticker.findAll({ where: { packId: pack.id } });
         const files = await fs.promises.readdir(path.join(config.stickers.path, pack.name));
+        const names = files.map(file => {
+            return path.basename(file, path.extname(file));
+        });
 
         let deletedStickers = [];
         stickers.forEach(sticker => {
-            if (!files.includes(sticker.name)) {
+            if (!names.includes(sticker.name)) {
                 deletedStickers.push(sticker);
             }
         });
