@@ -41,7 +41,7 @@ export class ScalarWidgetApi {
     public static sendSticker(sticker: FE_Sticker, pack: FE_StickerPack): void {
         ScalarWidgetApi.callAction("m.sticker", {
             data: {
-                description: sticker.description,
+                body: sticker.description,
                 content: {
                     url: sticker.thumbnail.mxc,
                     info: {
@@ -53,12 +53,6 @@ export class ScalarWidgetApi {
                             mimetype: sticker.image.mimetype,
                             w: sticker.thumbnail.width / 2,
                             h: sticker.thumbnail.height / 2,
-                        },
-
-                        // This has to be included in the info object so it makes it to the event
-                        dimension: {
-                            license: pack.license,
-                            author: pack.author,
                         },
                     },
                 },
