@@ -42,9 +42,10 @@ export class ScalarWidgetApi {
         console.log("[Dimension] sending sticker from pack: ", pack);
         ScalarWidgetApi.callAction("m.sticker", {
             data: {
-                body: sticker.description,
+                description: sticker.description,
                 content: {
                     url: sticker.thumbnail.mxc,
+                    body: sticker.description,
                     info: {
                         mimetype: sticker.image.mimetype,
                         w: sticker.thumbnail.width / 2,

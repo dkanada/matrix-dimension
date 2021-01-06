@@ -78,7 +78,7 @@ class StickerCheck {
         let newStickers = [];
         files.forEach(file => {
             const found = stickers.find(sticker => {
-                return sticker.name === file;
+                return sticker.name === path.basename(file, path.extname(file));
             });
 
             if (!found) {
