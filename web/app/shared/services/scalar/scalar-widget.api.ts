@@ -39,6 +39,7 @@ export class ScalarWidgetApi {
     }
 
     public static sendSticker(sticker: FE_Sticker, pack: FE_StickerPack): void {
+        console.log("[Dimension] sending sticker from pack: ", pack);
         ScalarWidgetApi.callAction("m.sticker", {
             data: {
                 body: sticker.description,
