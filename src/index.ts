@@ -4,6 +4,7 @@ import { DimensionStore } from "./db/DimensionStore";
 import Webserver from "./api/Webserver";
 import { CURRENT_VERSION } from "./version";
 import * as BotSdk from "matrix-bot-sdk";
+import StickerCheck from "./StickerCheck";
 
 LogService.configure(config.logging);
 LogService.info("index", "Starting dimension " + CURRENT_VERSION);
@@ -18,6 +19,9 @@ BotSdk.LogService.setLogger({
 
 async function startup() {
     await DimensionStore.updateSchema();
+
+    const stickerCheck = new StickerCheck();
+    stickerCheck.scan();
 
     const webserver = new Webserver();
     await webserver.start();

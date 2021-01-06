@@ -13,25 +13,17 @@ export interface DimensionConfig {
         federationUrl: string;
         mediaUrl: string;
     };
-    widgetBlacklist: string[];
     database: {
         file: string;
         botData: string;
         uri: string;
     };
     admins: string[];
-    goneb: {
-        avatars: {
-            [botType: string]: string; // mxc
-        };
-    };
-    telegram: {
-        botToken: string;
-    };
     stickers: {
         enabled: boolean;
         stickerBot: string;
         managerUrl: string;
+        path: string;
     };
     dimension: {
         publicUrl: string;
