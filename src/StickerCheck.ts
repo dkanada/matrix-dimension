@@ -91,17 +91,19 @@ class StickerCheck {
 
         for (const sticker of newStickers) {
             const file = path.join(config.stickers.path, pack.name, sticker);
-            const buffer = await sharp(file).png().toBuffer();
-            const url = await mx.upload(buffer, "image/png");
+            const image = await sharp(file);
+            const metadata = await image.metadata();
+            const buffer = await image.png().toBuffer();
 
+            const url = await mx.upload(buffer, "image/png");
             const newSticker = await Sticker.create({
                 packId: pack.id,
                 name: path.basename(sticker, path.extname(sticker)),
                 description: path.basename(sticker, path.extname(sticker)),
                 imageMxc: url,
                 thumbnailMxc: url,
-                thumbnailWidth: 512,
-                thumbnailHeight: 512,
+                thumbnailWidth: metadata.width,
+                thumbnailHeight: metadata.height,
                 mimetype: "image/png",
             });
 
